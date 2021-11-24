@@ -1,9 +1,3 @@
-pluginManagement {
-    repositories {
-        gradlePluginPortal()
-    }
-}
-
 rootProject.name = 'spring-rabbitmq-multimodule'
 include 'module-common'
 include 'module-server'
