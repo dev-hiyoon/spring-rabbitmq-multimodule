@@ -1,10 +1,10 @@
-package com.hiyoon.moduleserver;
+package com.hiyoon.moduleconsumer;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class ModuleServerApplicationTests {
+class ModuleConsumerApplicationTests {
 
     @Test
     void contextLoads() {

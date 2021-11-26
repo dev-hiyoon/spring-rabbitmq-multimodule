@@ -1,13 +1,13 @@
-package com.hiyoon.moduleserver;
+package com.hiyoon.moduleconsumer;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class ModuleServerApplication {
+public class ModuleConsumerApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(ModuleServerApplication.class, args);
+        SpringApplication.run(ModuleConsumerApplication.class, args);
     }
 
 }
