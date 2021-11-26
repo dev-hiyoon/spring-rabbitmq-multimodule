@@ -2,4 +2,6 @@ rootProject.name = 'spring-rabbitmq-multimodule'
 include 'module-common'
 include 'module-publisher'
 include 'module-consumer'
+include 'module-client'
+include 'module-server'
 

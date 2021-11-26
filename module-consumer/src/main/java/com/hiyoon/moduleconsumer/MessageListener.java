@@ -10,12 +10,9 @@ public class MessageListener {
 
     private static int MSG_CNT = 0;
 
-    @RabbitListener(queues = "SAMPLE.QUE01")
-    public void receiveMessage(final String message) {
+    @RabbitListener(queues = "SAMPLE.QUE01", concurrency = "5")
+    public void receiveMessage(final String message) throws InterruptedException {
         log.info("############### module-consumer. getMessgae: {}, MSG_CNT: {}", message, MSG_CNT);
-
-        if (MSG_CNT++ < 2) {
-            throw new RuntimeException("TEST");
-        }
+        Thread.sleep(3 * 1000);
     }
 }
