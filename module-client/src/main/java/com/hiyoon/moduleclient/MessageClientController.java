@@ -24,8 +24,36 @@ public class MessageClientController {
     @Value("${server.port}")
     private String serverPort;
 
-    @PostMapping(value = "/send")
-    public RQMessage sendMessage(@RequestBody RQMessage rQMessage) {
+    @PostMapping(value = "/send-simple")
+    public RQMessage sendSimpleMessage(@RequestBody RQMessage rQMessage) {
+        RQMessage response =
+                rabbitTemplate.convertSendAndReceiveAsType(
+                        exchange.getName(),
+                        MessageClientConfig.routingKey,
+                        rQMessage,
+                        new ParameterizedTypeReference<>() {
+                        });
+
+        log.info("sendMessage. response: {}", response);
+        return response;
+    }
+
+    @PostMapping(value = "/send-async")
+    public RQMessage sendAsyncMessage(@RequestBody RQMessage rQMessage) {
+        RQMessage response =
+                rabbitTemplate.convertSendAndReceiveAsType(
+                        exchange.getName(),
+                        MessageClientConfig.routingKey,
+                        rQMessage,
+                        new ParameterizedTypeReference<>() {
+                        });
+
+        log.info("sendMessage. response: {}", response);
+        return response;
+    }
+
+    @PostMapping(value = "/send-reply-to")
+    public RQMessage sendReplyToMessage(@RequestBody RQMessage rQMessage) {
 //        String response = (String) rabbitTemplate.convertSendAndReceive(MessageClientConfig.directExchangeName,
 //                MessageClientConfig.routingKey, RQMessage.getMessage());
 
