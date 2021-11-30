@@ -7,3 +7,9 @@ spring:
     port: 5672
     username: guest
     password: guest
+    template:
+      reply-timeout: 10000
+      receive-timeout: 10000
+      retry:
+        enabled: true
+        max-attempts: 3

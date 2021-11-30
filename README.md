@@ -24,7 +24,7 @@ consumer에서는 해당 요청을 받아 이후 로직을 수행합니다. cons
   * module-consumer
 
 
-### RabbitMQ RPC(Request-Reply)
+### RabbitMQ SIMPLE RPC(Request-Reply)
 
 server에서 client에 요청 후 client 응답을 다시 server에서 처리합니다. (server <-> client)
 
@@ -32,6 +32,21 @@ server에서 client에 요청 후 client 응답을 다시 server에서 처리합
   * exchange: SAMPLE.EX02, direct
   * queue: SAMPLE.QUE02
   * routing key: RKEY.EX02.RPC
+* 관련모듈
+  * module-common
+  * module-server
+  * module-client
+
+### RabbitMQ ASYNC RPC(Request-Reply)
+
+server에서 client에 요청 후 client 응답을 다시 server에서 비동기로 처리합니다. (server <-> client)
+요청 queue와 응답 queue가 각각 존재합니다.
+
+* rabbitmq 설정
+  * exchange: SAMPLE.EX.ASYNC, direct
+  * request queue: SAMPLE.QUE.ASYNC.REQUEST
+  * reply queue: SAMPLE.QUE.ASYNC.REPLY (exchange과 binding하지 않습니다.)
+  * routing key: SAMPLE.RKEY.ASYNC
 * 관련모듈
   * module-common
   * module-server
